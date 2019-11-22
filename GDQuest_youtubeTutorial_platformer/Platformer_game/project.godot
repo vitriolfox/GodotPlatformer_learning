@@ -21,6 +21,7 @@ _global_script_class_icons={
 [application]
 
 config/name="Platformer(tutorial)"
+run/main_scene="res://src/Levels/Level_Test.tscn"
 config/icon="res://icon.png"
 
 [input]
