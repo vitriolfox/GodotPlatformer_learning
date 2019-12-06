@@ -64,4 +64,5 @@ func _on_EnemyDetector_area_entered(area: Area2D) -> void:
 
 func _on_EnemyDetector_body_entered(body: PhysicsBody2D) -> void:
 	$AnimatedSprite.play("dead")
-	queue_free()
+	set_physics_process(false)
+	

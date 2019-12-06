@@ -4,7 +4,7 @@
 [ext_resource path="res://Assets/jelly/png/separate/Jellies/WithEyeShades/Jelly (6).png" type="Texture" id=2]
 [ext_resource path="res://Assets/jelly/png/separate/Faces/Face6.png" type="Texture" id=3]
 
-[sub_resource type="Animation" id=3]
+[sub_resource type="Animation" id=1]
 resource_name = "wobbling"
 loop = true
 tracks/0/type = "value"
@@ -32,11 +32,11 @@ tracks/1/keys = {
 "values": [ Vector2( -0.712644, -34.8684 ), Vector2( -0.712644, -31.3806 ) ]
 }
 
-[sub_resource type="RectangleShape2D" id=1]
+[sub_resource type="RectangleShape2D" id=2]
 extents = Vector2( 31.811, 22.9446 )
 
-[sub_resource type="RectangleShape2D" id=2]
-extents = Vector2( 48.0834, 15.3329 )
+[sub_resource type="RectangleShape2D" id=3]
+extents = Vector2( 33.4681, 15.3329 )
 
 [node name="black_jelly" type="KinematicBody2D"]
 collision_layer = 2
@@ -53,11 +53,11 @@ position = Vector2( -1.64874, 36.1574 )
 texture = ExtResource( 3 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Jelly (6)"]
-anims/wobbling = SubResource( 3 )
+anims/wobbling = SubResource( 1 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2( -0.447366, -22.7746 )
-shape = SubResource( 1 )
+shape = SubResource( 2 )
 
 [node name="VisibilityEnabler2D" type="VisibilityEnabler2D" parent="."]
 position = Vector2( 331.55, 103.033 )
@@ -71,6 +71,7 @@ position = Vector2( 0.166092, -46.6683 )
 collision_layer = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="stomp_detector-Area2D"]
-position = Vector2( 1.52588e-05, -8.96216 )
-shape = SubResource( 2 )
+position = Vector2( -0.664322, -9.12824 )
+scale = Vector2( 0.993128, 1.03369 )
+shape = SubResource( 3 )
 [connection signal="body_entered" from="stomp_detector-Area2D" to="." method="_on_stomp_detectorArea2D_body_entered"]
