@@ -1,20 +1,109 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=43 format=2]
 
 [ext_resource path="res://Actors/Player.gd" type="Script" id=1]
 [ext_resource path="res://Assets/png/Idle (1).png" type="Texture" id=2]
+[ext_resource path="res://Assets/png/Idle (2).png" type="Texture" id=3]
+[ext_resource path="res://Assets/png/Idle (3).png" type="Texture" id=4]
+[ext_resource path="res://Assets/png/Idle (4).png" type="Texture" id=5]
+[ext_resource path="res://Assets/png/Idle (5).png" type="Texture" id=6]
+[ext_resource path="res://Assets/png/Idle (6).png" type="Texture" id=7]
+[ext_resource path="res://Assets/png/Idle (7).png" type="Texture" id=8]
+[ext_resource path="res://Assets/png/Idle (8).png" type="Texture" id=9]
+[ext_resource path="res://Assets/png/Idle (9).png" type="Texture" id=10]
+[ext_resource path="res://Assets/png/Idle (10).png" type="Texture" id=11]
+[ext_resource path="res://Assets/png/Jump (1).png" type="Texture" id=12]
+[ext_resource path="res://Assets/png/Jump (2).png" type="Texture" id=13]
+[ext_resource path="res://Assets/png/Jump (3).png" type="Texture" id=14]
+[ext_resource path="res://Assets/png/Jump (4).png" type="Texture" id=15]
+[ext_resource path="res://Assets/png/Jump (5).png" type="Texture" id=16]
+[ext_resource path="res://Assets/png/Jump (6).png" type="Texture" id=17]
+[ext_resource path="res://Assets/png/Jump (7).png" type="Texture" id=18]
+[ext_resource path="res://Assets/png/Jump (8).png" type="Texture" id=19]
+[ext_resource path="res://Assets/png/Jump (9).png" type="Texture" id=20]
+[ext_resource path="res://Assets/png/Jump (10).png" type="Texture" id=21]
+[ext_resource path="res://Assets/png/Jump (11).png" type="Texture" id=22]
+[ext_resource path="res://Assets/png/Jump (12).png" type="Texture" id=23]
+[ext_resource path="res://Assets/png/Run (1).png" type="Texture" id=24]
+[ext_resource path="res://Assets/png/Run (2).png" type="Texture" id=25]
+[ext_resource path="res://Assets/png/Run (3).png" type="Texture" id=26]
+[ext_resource path="res://Assets/png/Run (4).png" type="Texture" id=27]
+[ext_resource path="res://Assets/png/Run (5).png" type="Texture" id=28]
+[ext_resource path="res://Assets/png/Run (6).png" type="Texture" id=29]
+[ext_resource path="res://Assets/png/Run (7).png" type="Texture" id=30]
+[ext_resource path="res://Assets/png/Run (8).png" type="Texture" id=31]
+[ext_resource path="res://Assets/png/Dead (1).png" type="Texture" id=32]
+[ext_resource path="res://Assets/png/Dead (2).png" type="Texture" id=33]
+[ext_resource path="res://Assets/png/Dead (3).png" type="Texture" id=34]
+[ext_resource path="res://Assets/png/Dead (4).png" type="Texture" id=35]
+[ext_resource path="res://Assets/png/Dead (5).png" type="Texture" id=36]
+[ext_resource path="res://Assets/png/Dead (6).png" type="Texture" id=37]
+[ext_resource path="res://Assets/png/Dead (7).png" type="Texture" id=38]
+[ext_resource path="res://Assets/png/Dead (8).png" type="Texture" id=39]
 
-[sub_resource type="CapsuleShape2D" id=1]
-radius = 77.8393
-height = 219.335
+[sub_resource type="SpriteFrames" id=1]
+animations = [ {
+"frames": [ ExtResource( 2 ), ExtResource( 3 ), ExtResource( 4 ), ExtResource( 5 ), ExtResource( 6 ), ExtResource( 7 ), ExtResource( 8 ), ExtResource( 9 ), ExtResource( 10 ), ExtResource( 11 ) ],
+"loop": true,
+"name": "idle",
+"speed": 8.0
+}, {
+"frames": [ ExtResource( 12 ), ExtResource( 13 ), ExtResource( 14 ), ExtResource( 15 ), ExtResource( 16 ), ExtResource( 17 ), ExtResource( 18 ), ExtResource( 19 ), ExtResource( 20 ), ExtResource( 21 ), ExtResource( 22 ), ExtResource( 23 ) ],
+"loop": false,
+"name": "jump",
+"speed": 20.0
+}, {
+"frames": [ ExtResource( 24 ), ExtResource( 25 ), ExtResource( 26 ), ExtResource( 27 ), ExtResource( 28 ), ExtResource( 29 ), ExtResource( 30 ), ExtResource( 31 ) ],
+"loop": true,
+"name": "run",
+"speed": 15.0
+}, {
+"frames": [ ExtResource( 32 ), ExtResource( 33 ), ExtResource( 34 ), ExtResource( 35 ), ExtResource( 36 ), ExtResource( 37 ), ExtResource( 38 ), ExtResource( 39 ) ],
+"loop": false,
+"name": "dead",
+"speed": 12.0
+} ]
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 37.8827, 62.496 )
+
+[sub_resource type="RectangleShape2D" id=3]
+extents = Vector2( 34.4222, 61.4102 )
 
 [node name="Player" type="KinematicBody2D"]
 collision_mask = 8
 script = ExtResource( 1 )
+__meta__ = {
+"_edit_vertical_guides_": [ 15.1289, 120.0, 54.1975, 53.5545 ]
+}
 
-[node name="Idle (1)" type="Sprite" parent="."]
-position = Vector2( 132.688, -186.093 )
-texture = ExtResource( 2 )
+[node name="AnimatedSprite" type="AnimatedSprite" parent="."]
+position = Vector2( 54, -74 )
+scale = Vector2( 0.4, 0.4 )
+frames = SubResource( 1 )
+animation = "idle"
+frame = 6
+playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2( 20.9876, -187.582 )
-shape = SubResource( 1 )
+position = Vector2( 15, -62 )
+scale = Vector2( 1, 1 )
+shape = SubResource( 2 )
+
+[node name="EnemyDetector" type="Area2D" parent="."]
+position = Vector2( 15, -62 )
+scale = Vector2( 1, 1 )
+monitorable = false
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="EnemyDetector"]
+modulate = Color( 0.917647, 0, 0.796078, 1 )
+shape = SubResource( 3 )
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2( 14.3951, -188.541 )
+current = true
+limit_left = 0
+limit_smoothed = true
+[connection signal="area_entered" from="EnemyDetector" to="." method="_on_EnemyDetector_area_entered"]
+[connection signal="body_entered" from="EnemyDetector" to="." method="_on_EnemyDetector_body_entered"]

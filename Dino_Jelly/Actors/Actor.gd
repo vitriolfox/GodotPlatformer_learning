@@ -8,5 +8,5 @@ export var velocity: = Vector2.ZERO
 export var gravity: = 3000.0
 
 #defining the maximum speed on the x and y axis
-export var speedLimit: = Vector2(300.0, 1000.0)
+export var speed_limit: = Vector2(300.0, 1000.0)
 
