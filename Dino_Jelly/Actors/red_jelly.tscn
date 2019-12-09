@@ -1,0 +1,77 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://Actors/black_jelly.gd" type="Script" id=1]
+[ext_resource path="res://Assets/jelly/png/separate/Jellies/WithEyeShades/Jelly (3).png" type="Texture" id=2]
+[ext_resource path="res://Assets/jelly/png/separate/Faces/Face3.png" type="Texture" id=3]
+
+[sub_resource type="Animation" id=1]
+resource_name = "wobbling"
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 3.86375, 1 ),
+"update": 0,
+"values": [ Vector2( 0.25, 0.25 ), Vector2( 0.25, 0.23 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 4.14106, 1 ),
+"update": 0,
+"values": [ Vector2( -0.712644, -34.8684 ), Vector2( -0.712644, -31.3806 ) ]
+}
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 31.811, 22.9446 )
+
+[sub_resource type="RectangleShape2D" id=3]
+extents = Vector2( 33.4681, 15.3329 )
+
+[node name="red_jelly" type="KinematicBody2D"]
+collision_layer = 2
+collision_mask = 8
+script = ExtResource( 1 )
+
+[node name="Jelly (6)" type="Sprite" parent="."]
+position = Vector2( -0.712644, -34.8432 )
+scale = Vector2( 0.25, 0.249799 )
+texture = ExtResource( 2 )
+
+[node name="Face3" type="Sprite" parent="Jelly (6)"]
+position = Vector2( 2.85058, 51.4141 )
+texture = ExtResource( 3 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Jelly (6)"]
+anims/wobbling = SubResource( 1 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( -0.447366, -22.7746 )
+shape = SubResource( 2 )
+
+[node name="VisibilityEnabler2D" type="VisibilityEnabler2D" parent="."]
+position = Vector2( 332, 103 )
+scale = Vector2( 65.3419, 28.7825 )
+rect = Rect2( -10, -10, 10, 10 )
+process_parent = true
+physics_process_parent = true
+
+[node name="stomp_detector-Area2D" type="Area2D" parent="."]
+position = Vector2( 0.166092, -46.6683 )
+collision_layer = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="stomp_detector-Area2D"]
+position = Vector2( -0.664322, -9.12824 )
+scale = Vector2( 0.993128, 1.03369 )
+shape = SubResource( 3 )
+[connection signal="body_entered" from="stomp_detector-Area2D" to="." method="_on_stomp_detectorArea2D_body_entered"]

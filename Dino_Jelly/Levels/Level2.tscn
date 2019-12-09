@@ -1,4 +1,4 @@
-[gd_scene load_steps=42 format=2]
+[gd_scene load_steps=41 format=2]
 
 [ext_resource path="res://Assets/freetileset/png/BG/BG.png" type="Texture" id=1]
 [ext_resource path="res://Assets/freetileset/png/Tiles/1.png" type="Texture" id=2]
@@ -23,7 +23,6 @@
 [ext_resource path="res://Actors/water_death.tscn" type="PackedScene" id=21]
 [ext_resource path="res://Actors/red_jelly.tscn" type="PackedScene" id=22]
 [ext_resource path="res://Actors/NextLevel_Sign.tscn" type="PackedScene" id=23]
-[ext_resource path="res://Levels/Level2.tscn" type="PackedScene" id=24]
 
 [sub_resource type="ConvexPolygonShape2D" id=1]
 points = PoolVector2Array( 0, 0, 128, 0, 128, 128, 0, 128 )
@@ -407,4 +406,3 @@ position = Vector2( 6199.34, 300.728 )
 
 [node name="NextLevel" parent="." instance=ExtResource( 23 )]
 position = Vector2( 6627.34, 340.728 )
-next_scene = ExtResource( 24 )
